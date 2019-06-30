@@ -32,6 +32,9 @@ out = sess.run(None, {input_name: X.astype(np.float32)})
 out = out[0][0]
 
 numClasses = 20
+'''
+[explanation about anchors](https://github.com/hollance/YOLO-CoreML-MPSNNGraph/issues/27)
+'''
 anchors = [1.08, 1.19, 3.42, 4.41, 6.63, 11.38, 9.42, 5.11, 16.62, 10.52]
 
 def sigmoid(x, derivative=False):
