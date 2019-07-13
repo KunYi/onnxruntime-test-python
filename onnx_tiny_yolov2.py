@@ -17,7 +17,7 @@ import cv2
 from PIL import Image,ImageDraw
 
 print('\nwaiting a monent for loading onnx file\n')
-sess = rt.InferenceSession("tiny_yolov2/model.onnx")
+sess = rt.InferenceSession("models/tiny_yolov2.onnx")
 input_name = sess.get_inputs()[0].name
 print('\ncomplete load onnx\n')
 
