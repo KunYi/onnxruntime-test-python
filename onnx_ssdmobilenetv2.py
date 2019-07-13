@@ -43,3 +43,12 @@ for i in range (0, int(count)) :
        draw.rectangle([(int(x0), int(y0)), (int(x1), int(y1))], None, (0, 0, 255))
 
 img.save("result.png")
+
+cv2.namedWindow('Result Image', cv2.WINDOW_NORMAL)
+img = cv2.imread('result.png')
+cv2.imshow('Result Image', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+print("end program")
+
