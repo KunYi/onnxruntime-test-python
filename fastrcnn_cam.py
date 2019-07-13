@@ -34,7 +34,7 @@ classes = [
 ]
 
 print('\nwaiting a monent for loading onnx file\n')
-sess = rt.InferenceSession("onnx_models/faster_rcnn/faster_rcnn_R_50_FPN_1x.onnx")
+sess = rt.InferenceSession("models/faster_rcnn_R_50_FPN_1x.onnx")
 input_name = sess.get_inputs()[0].name
 print('\ncomplete load onnx\n')
 
