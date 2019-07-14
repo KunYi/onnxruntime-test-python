@@ -5,10 +5,11 @@
  use tf2onnx/opset v10 to convert onnx model
  ref. https://github.com/onnx/tensorflow-onnx
 '''
+from imutils.video import FileVideoStream
 import numpy as np
 import onnxruntime as rt
 import cv2
-from PIL import Image,ImageDraw
+
 
 def preprocess(img):
     img = cv2.resize(img, (300, 300), interpolation = cv2.INTER_LINEAR)
@@ -31,22 +32,21 @@ sess = rt.InferenceSession(model_file)
 input_name = sess.get_inputs()[0].name
 print('\ncomplete load onnx\n')
 
-cam = cv2.VideoCapture('2.mp4')
+fvs = FileVideoStream('2.mp4').start()
+#cam = cv2.VideoCapture('2.mp4')
 count = 5
 skipFrame = 5
 
-while (1):
-    ret_val, img = cam.read()
+while fvs.more():
+    img = fvs.read()
     count += 1
     if count % skipFrame != 0:
         continue
 
-    if ret_val:
-       # read image size
-       H, W = img.shape[:2]
-       X = preprocess(img)
-    else:
-        break
+    # read image size
+    H, W = img.shape[:2]
+    X = preprocess(img)
+
     out = sess.run(None, {input_name: X.astype(np.uint8)})
     boxes = out[0][0][:] * np.array([H, W, H, W]) # for original
     scores = out[1][0][:]
