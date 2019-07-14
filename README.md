@@ -7,7 +7,7 @@ all example code test pass on Docker container
 ### Preperation
 
 to build our backend, [ONNX runtime/OpenVINO EP
-to docker image](https://github.com/KunYi/Edge-Analytics-FaaS/tree/master/Azure-IoT-Edge/OnnxRuntime)
+in docker image](https://github.com/KunYi/Edge-Analytics-FaaS/tree/master/Azure-IoT-Edge/OnnxRuntime)
 
 ---
 ### Example
